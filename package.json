@@ -17,17 +17,18 @@
     "url": "https://github.com/ugochukwu16henry/cse341-node/issues"
   },
   "homepage": "https://github.com/ugochukwu16henry/cse341-node#readme",
-"dependencies": {
-  "body-parser": "^2.2.0",
-  "express": "^5.1.0",
-  "express-session": "^1.18.2",
-  "multer": "^2.0.2",
-  "mysql": "^2.18.1"
-},
-"devDependencies": {
-  "nodemon": "^3.0.1"
-},
-"engines": {
-  "node": ">=18.0.0"
-}
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mongodb": "^6.20.0",
+    "multer": "^2.0.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
