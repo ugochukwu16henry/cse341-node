@@ -1,5 +1,5 @@
 const express = require("express");
-const mongodb = require("mongodb");// Import MongoDB helper file
+const mongodb = require("./mongodb");// Import MongoDB helper file
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const router = express.Router();
@@ -46,7 +46,7 @@ router.get("/logout", (req, res) => {
 });
 
 // Initialize MongoDB connection before starting the server
-mongodb.initdb((err, db) => {
+mongodb.initDb((err, db) => {
   if (err) {
     console.error('❌ Failed to connect to MongoDB:', err);
   } else {
@@ -73,6 +73,4 @@ app.get('/messages', (req, res) => {
 
 app.use("/", router);
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`App Started on PORT ${process.env.PORT || 3000}`);
-});
+

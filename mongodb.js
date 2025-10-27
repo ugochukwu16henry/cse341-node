@@ -1,47 +1,30 @@
-// mongodb.js
-
-const mongoClient = require("mongodb").MongoClient;
-
-const mongoDBIP = "192.168.1.71";
-const mongoDBPort = 27017;
-
-// Replace <mongo admin> and <password> with your actual MongoDB credentials
+const { MongoClient } = require("mongodb");
 const mongoURL =
-  "mongodb://ugochukwuhenry:1995Mobuchi@" +
-  `${mongoDBIP}` +
-  ":" +
-  `${mongoDBPort}`;
+  "mongodb+srv://ugochukwuhenry:1995Mobuchi@cluster0.9dcg7c4.mongodb.net/?appName=Cluster0";
 
 let _db;
 
-// Initialize and connect to the database
 const initDb = (callback) => {
   if (_db) {
-    console.log("Db is already initialized!");
+    console.log("✅ Database already initialized.");
     return callback(null, _db);
   }
 
-  mongoClient
-    .connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  MongoClient.connect(mongoURL)
     .then((client) => {
       _db = client;
-      console.log("✅ Database connected successfully");
+      console.log("✅ MongoDB connection established.");
       callback(null, _db);
     })
     .catch((err) => {
+      console.error("❌ MongoDB connection failed:", err);
       callback(err);
     });
 };
 
-// Return the connected database instance
 const getDb = () => {
-  if (!_db) {
-    throw Error("❌ Database not initialized. Call initDb first!");
-  }
+  if (!_db) throw Error("Database not initialized");
   return _db;
 };
 
-module.exports = {
-  initDb,
-  getDb,
-};
+module.exports = { initDb, getDb };
