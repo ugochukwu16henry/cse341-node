@@ -1,4 +1,5 @@
 const express = require("express");
+const mongodb = require("mongodb");// Import MongoDB helper file
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const router = express.Router();
@@ -42,6 +43,32 @@ router.get("/logout", (req, res) => {
     }
     res.redirect("/");
   });
+});
+
+// Initialize MongoDB connection before starting the server
+mongodb.initDb((err, db) => {
+  if (err) {
+    console.error('❌ Failed to connect to MongoDB:', err);
+  } else {
+    console.log('✅ MongoDB initialized, starting server...');
+    app.listen(3000, () => {
+      console.log('Server is running on port 3000');
+    });
+  }
+});
+
+// Example route that uses the DB
+app.get('/messages', (req, res) => {
+  try {
+    const db = mongodb.getDb().db('<databaseName>'); // replace with your actual DB name
+    db.collection('messages')
+      .find({})
+      .toArray()
+      .then((docs) => res.json(docs))
+      .catch((err) => res.status(500).send(err));
+  } catch (err) {
+    res.status(500).send('Database not initialized');
+  }
 });
 
 app.use("/", router);
