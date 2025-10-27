@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   if (sess.email) {
     return res.redirect("/admin");
   }
-  res.send("Ok");
+  res.send("Welcome Henry");
 });
 
 router.post("/login", (req, res) => {
