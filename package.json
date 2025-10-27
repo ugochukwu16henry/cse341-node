@@ -1,0 +1,23 @@
+{
+  "name": "cse341-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "connection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ugochukwu16henry/cse341-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ugochukwu16henry/cse341-node/issues"
+  },
+  "homepage": "https://github.com/ugochukwu16henry/cse341-node#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
