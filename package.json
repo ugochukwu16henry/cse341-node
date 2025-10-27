@@ -19,6 +19,7 @@
   "homepage": "https://github.com/ugochukwu16henry/cse341-node#readme",
   "dependencies": {
     "body-parser": "^2.2.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
   }
 }
