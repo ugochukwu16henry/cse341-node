@@ -46,7 +46,7 @@ router.get("/logout", (req, res) => {
 });
 
 // Initialize MongoDB connection before starting the server
-mongodb.initDb((err, db) => {
+mongodb.initdb((err, db) => {
   if (err) {
     console.error('❌ Failed to connect to MongoDB:', err);
   } else {
